@@ -12,7 +12,7 @@ GPIO.setup(led1, GPIO.OUT)
 GPIO.output(led1, GPIO.LOW)
 
 # Create and initialise PWM
-pwm = GPIO.PWM(led, 100)
+pwm = GPIO.PWM(led1, 100)
 pwm.start(0)
 
 
@@ -51,7 +51,7 @@ def main():
     try:
         ourClient = mqtt.Client("makerio_mqtt")
         ourClient.connect("test.mosquitto.org", 1883)
-        ourClient.subscribe("photonLog")
+        ourClient.subscribe("argonLog")
         ourClient.on_message = message_function
         ourClient.loop_start()
 
